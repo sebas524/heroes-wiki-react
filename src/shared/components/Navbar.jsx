@@ -1,7 +1,15 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const logoutHandler = () => {
+    navigate("/login", {
+      replace: "true",
+    });
+    console.log("you were logged out...");
+  };
+
   return (
     <nav
       className="navbar navbar-expand bg-primary p-2 "
@@ -41,6 +49,14 @@ export const Navbar = () => {
             <li className="nav-item">
               <NavLink
                 className="nav-link"
+                to="/search"
+              >
+                Search
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
                 to="/login"
               >
                 Login
@@ -49,7 +65,12 @@ export const Navbar = () => {
           </ul>
         </div>
         <span className="nav-item nav-link text-info">John</span>
-        <button className="btn btn-primary">Log out</button>
+        <button
+          className="btn btn-primary"
+          onClick={logoutHandler}
+        >
+          Log out
+        </button>
       </div>
     </nav>
   );

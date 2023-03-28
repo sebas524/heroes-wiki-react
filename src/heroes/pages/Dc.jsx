@@ -1,10 +1,12 @@
 import React from "react";
+import { HeroesList } from "../components/HeroesList";
 
 export const Dc = () => {
   return (
-    <div>
+    <>
       <h1>DC</h1>
       <hr />
-    </div>
+      <HeroesList publisher={"DC Comics"}></HeroesList>
+    </>
   );
 };
